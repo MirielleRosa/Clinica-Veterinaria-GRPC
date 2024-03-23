@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Abel";
+    src: url("images/font/Abel-Regular.ttf");
+}
+
+.menuHistorico {
+    -fx-font-family: "Abel";
+}
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="893.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="javafx.controller.FXMLChatClientController">
+   <children>
+      <Pane prefHeight="537.0" prefWidth="247.0">
+         <children>
+            <AnchorPane fx:id="anchorPaneDadosClient" prefHeight="537.0" prefWidth="247.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="247.0" layoutY="-1.0" prefHeight="537.0" prefWidth="647.0">
+         <children>
+            <AnchorPane prefHeight="527.0" prefWidth="638.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

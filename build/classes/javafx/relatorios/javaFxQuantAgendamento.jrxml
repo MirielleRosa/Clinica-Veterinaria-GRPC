@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="javaFxQuantAgendamento" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ed3e47e0-0355-4e12-b5e1-635eb6c33c5d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ClinicaFinal"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT c.nome AS nome_cliente, a.nome AS nome_animal, COUNT(*) AS num_agendamentos
+FROM cliente c
+JOIN agendamento ag ON c.idCliente = ag.cliente
+JOIN animal a ON ag.animal = a.idAnimal
+GROUP BY c.idCliente, a.idAnimal
+ORDER BY num_agendamentos DESC;]]>
+	</queryString>
+	<field name="nome_cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="nome_animal" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_animal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="animal"/>
+	</field>
+	<field name="num_agendamentos" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="num_agendamentos"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#2F3333" uuid="b0e05845-6647-4aac-a3ab-d2a4bc2f4828"/>
+				<staticText>
+					<reportElement x="20" y="20" width="480" height="43" forecolor="#FFFFFF" uuid="62345a0f-bc0d-42c0-9a87-0f42d7b8adbd"/>
+					<textElement>
+						<font fontName="SansSerif" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatorio Agendamento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="49" forecolor="#FFFFFF" uuid="397d370e-5022-4819-b30a-9620f21fea08"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="c410690b-5aa1-4d5e-9b9a-14d715c33fa3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8277b16-d17d-4e53-a9c1-102c9cf2a573"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="4e0db119-4ff5-4818-85e2-5691cec636bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1473b1c7-b477-447b-bf67-4750fe3a340f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Animal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="bb46a29f-2f90-42d4-8846-1bf996a1239d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1acf6233-9acf-4131-83e0-325ae1a5ff72"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qnt agendamentos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="485f333c-356b-4a40-af2a-bf367dbb0a0f"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="185" height="20" uuid="7cf5d4ea-8ed5-400a-a58d-cb4eb62c02fd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8277b16-d17d-4e53-a9c1-102c9cf2a573"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome_cliente}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="185" y="0" width="185" height="20" uuid="98b27697-5df2-46fb-aea1-acecefdde1b9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1473b1c7-b477-447b-bf67-4750fe3a340f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome_animal}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="370" y="0" width="160" height="20" uuid="2f249e2e-aa83-47a0-a609-9c13ee63c980">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1acf6233-9acf-4131-83e0-325ae1a5ff72"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{num_agendamentos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FFFFFF" backcolor="#2F3333" uuid="6f9dda17-ccb5-43b8-84d6-f38dcc8a71ab"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FFFFFF" backcolor="#2F3333" uuid="d9953f87-d8fe-4b92-b7d9-85b6a2e652fc"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" forecolor="#FFFFFF" uuid="8f505185-69bd-47b3-acac-71af3f615b4c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

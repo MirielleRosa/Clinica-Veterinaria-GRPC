@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.FXMLMenuController">
+   <children>
+      <BorderPane layoutX="-3.0" layoutY="-2.0" prefHeight="588.0" prefWidth="944.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="82.0" prefWidth="942.0" style="-fx-background-color: #F5F9F8;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="5.0" layoutY="-1.0" prefHeight="30.0" prefWidth="942.0" style="-fx-background-color: #F5F9F8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="34.0" prefWidth="968.0" style="-fx-background-color: #F5F9F8;">
+                           <children>
+                              <Button fx:id="buttonFechar" layoutX="900.0" layoutY="-3.0" mnemonicParsing="false" onAction="#buttonFecharPrograma" style="-fx-background-color: #F5F9F8;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <graphic>
+                                    <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/closed.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Pane>
+                  <HBox layoutX="209.0" layoutY="32.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="46.0" prefWidth="715.0" style="-fx-background-color: #F5F9F8;" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="32.0">
+                     <children>
+                        <Button fx:id="buttonSobre" mnemonicParsing="false" onAction="#handleMenuItemSobre" prefHeight="21.0" prefWidth="67.0" style="-fx-background-color: #F5F9F8;" text="SOBRE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="menuPaciente" alignment="CENTER" mnemonicParsing="false" onAction="#handleMenuItemFeedback" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: #F5F9F8;" text="FEEDBACK">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Button>
+                        <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="42.0" prefWidth="294.0" style="-fx-background-color: #F5F9F8; -fx-font-size: 15px;">
+                          <menus>
+                            <Menu fx:id="menuCadastro" mnemonicParsing="false" text=" CADASTRO">
+                              <items>
+                                <MenuItem fx:id="menuItemAnimal" mnemonicParsing="false" onAction="#handleMenuItemCadastroAnimal" text="Animal" />
+                                    <MenuItem fx:id="menuItemCliente" mnemonicParsing="false" onAction="#handleMenuItemCadastrosClientes" text="Cliente" />
+                                    <MenuItem fx:id="menuItemFuncionario" mnemonicParsing="false" onAction="#handleMenuItemCadastroFuncionario" text="Funcionário" />
+                                    <MenuItem fx:id="menuItemVacina" mnemonicParsing="false" onAction="#handleMenuItemCadastroVacina" text="Vacina" />
+                                    <MenuItem fx:id="menuItemVeterinario" mnemonicParsing="false" onAction="#handleMenuItemCadastroVetrinario" text="Veterinário" />
+                              </items>
+                            </Menu>
+                              <Menu fx:id="menuListagem" mnemonicParsing="false" text="RELATÓRIO">
+                                <items>
+                                    <MenuItem fx:id="menuItemListagemAnimais" mnemonicParsing="false" onAction="#handleMenuItemRelatorioAnimais" text="Quantidade Animais" />
+                                    <MenuItem fx:id="menuItemAgen" mnemonicParsing="false" onAction="#handleMenuItemRelatorioAgen" text="Agendamentos" />
+                                  <MenuItem fx:id="menuItemVetRelatorio" mnemonicParsing="false" onAction="#handleMenuItemRelatorioVet" text="Vacinações Realizadas" />
+                                </items>
+                              </Menu>
+                            <Menu mnemonicParsing="false" text="GRÁFICO">
+                              <items>
+                                    <MenuItem mnemonicParsing="false" text="Agendamentos" />
+                                <MenuItem fx:id="graficoVacinacao" mnemonicParsing="false" onAction="#FXMLGraficoVacinacaoPorMes" text="Vacinação" />
+                                    <MenuItem fx:id="menuItemVet" mnemonicParsing="false" onAction="#FXMLGraficoVeterinarioElegido" text="Veterinário" />
+                              </items>
+                            </Menu>
+                          </menus>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </MenuBar>
+                        <Button fx:id="menuVacinacao" mnemonicParsing="false" onAction="#handleMenuItemProcessoVacinacao" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #F5F9F8;" text="VACINAÇÃO">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="6.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="menuHistorico" mnemonicParsing="false" onAction="#handleMenuItemProcessoAgendamento" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #F5F9F8;" text="AGENDAMENTO">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="6.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ImageView fx:id="logo" fitHeight="27.0" fitWidth="269.0" layoutX="44.0" layoutY="42.0" onMouseClicked="#handleMenuItemLimparAnchorPane" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                     <image>
+                        <Image url="@../../images/VetVet%20(1)%201.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane fx:id="anchorPaneCarregar" prefHeight="376.0" prefWidth="661.0" style="-fx-background-color: #F5F9F8;" BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <Pane prefHeight="509.0" prefWidth="52.0" style="-fx-background-color: #F5F9F8;" BorderPane.alignment="CENTER" />
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

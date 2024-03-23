@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="javaFxRelatorioVacinacaoVeterinario" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4307a266-a234-47f8-a2c1-4dd8757efa74">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ClinicaFinal"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT v.id, v.nome AS nomeVeterinario, an.nome AS nomeAnimal, c.nome AS nomeCliente, vc.tipo AS tipoVacina, COUNT(a.idVacinacao) AS num_vacinacoes
+FROM veterinario v
+JOIN vacinacao a ON v.id = a.veterinario
+JOIN animal an ON an.idAnimal = a.animal
+JOIN cliente c ON c.idCliente = a.cliente
+JOIN vacina vc ON vc.idVacina = a.vacina
+GROUP BY v.id, v.nome, an.nome, c.nome, vc.tipo
+ORDER BY num_vacinacoes DESC;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veterinario"/>
+	</field>
+	<field name="nomeveterinario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomeveterinario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veterinario"/>
+	</field>
+	<field name="nomeanimal" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomeanimal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="animal"/>
+	</field>
+	<field name="nomecliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomecliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="tipovacina" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipovacina"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vacina"/>
+	</field>
+	<field name="num_vacinacoes" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="num_vacinacoes"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#2F3333" uuid="2198f17a-d2b0-465a-9ff4-e2a3ade0c4d1"/>
+				<staticText>
+					<reportElement x="20" y="20" width="440" height="70" forecolor="#FFFFFF" uuid="e0038415-407d-4cbc-92b2-066aa9feab95"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatorio Veterinario Vacinas
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="410" y="43" width="165" height="47" forecolor="#FFFFFF" uuid="d6a8511e-c49c-4bb5-abf0-29c274e0c022"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Quantidade de vacinas aplicadas  por animal]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="b0b99eb8-b990-458b-947e-cfd3088deb9a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="b34d94a6-7a5d-4722-b1a6-03448bdc0e80">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1146aa65-0aac-4d72-9346-b33af3bccb0d"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="74233a7f-1481-4936-9367-7cdb5858593d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="435590cc-9dd5-4037-a8e3-3cf4799cd3fc"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[veterinario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="39c5fac3-5f78-4a5a-9e4d-2d0db4267942">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7029f3a-74a5-4392-88c3-9beabe17e228"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[animal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="a12333e1-306a-4a35-826d-a7ec27329c6e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8970bffa-57ae-4afd-ac9a-ca45cff2fdac"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="09802267-e399-483b-8817-ad3ac259071c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58aaea02-d628-4036-86bb-4471639ce3bb"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[vacina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="460" y="0" width="110" height="20" forecolor="#FFFFFF" backcolor="#2F3333" uuid="2b76c25e-da83-4347-a391-712646bfe632">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="afd0b55a-8e4c-40d8-bd28-23bc76ed6f55"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[quantidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="931f0b79-5b73-4b2f-b431-3a666019c704"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="92" height="20" uuid="daad048f-7c5e-4d8b-b59f-be4d86d9d87d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1146aa65-0aac-4d72-9346-b33af3bccb0d"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="92" y="0" width="92" height="20" uuid="80eb1ef0-4d07-4e90-a427-fc4c6a71e95f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="435590cc-9dd5-4037-a8e3-3cf4799cd3fc"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeveterinario}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="184" y="0" width="92" height="20" uuid="a5a7b3fb-b8ce-4c10-837e-ed218fa9d8c0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7029f3a-74a5-4392-88c3-9beabe17e228"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeanimal}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="276" y="0" width="92" height="20" uuid="13b0ec67-8483-4777-9239-57ad31ccf127">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8970bffa-57ae-4afd-ac9a-ca45cff2fdac"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomecliente}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="368" y="0" width="92" height="20" uuid="8c900457-54fe-495f-a2c9-c4ba04655980">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58aaea02-d628-4036-86bb-4471639ce3bb"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipovacina}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="460" y="0" width="92" height="20" uuid="b5954fbc-956f-402a-9172-6c2647a273e0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="afd0b55a-8e4c-40d8-bd28-23bc76ed6f55"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{num_vacinacoes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FFFFFF" backcolor="#2F3333" uuid="4688eb3e-9c42-4f94-9f17-15d2451e65ef"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FFFFFF" backcolor="#2F3333" uuid="901b7bfa-7025-421c-854a-213bb859832b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" forecolor="#FFFFFF" uuid="bef5194d-0153-4afc-956a-899e08f510c3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

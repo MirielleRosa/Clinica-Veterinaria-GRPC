@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="893.0" style="-fx-background-color: #F5F9F8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.FXMLGraficoVacinacaoPorMesController">
+       <children>
+      <BarChart fx:id="barChartVacinacoes" prefHeight="512.0" prefWidth="851.0" style="-fx-background-color: #F5F9F8; -fx-alternative-column-fill-visible: #99BFE1; -fx-alternative-row-fill-visible: #0C4365; -fx-scale-x: #0C4365; -fx-region-background: #0C4365;" title="Gráfico de Vacinações por Mês" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="0.0">
+        <xAxis>
+          <CategoryAxis fx:id="categoryAxis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="NumberAxis" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

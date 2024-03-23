@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package javafx.agendamento;
+
+option java_multiple_files = true;
+option java_package = "javafx.agendamento";
+option java_outer_classname = "AgendaProto";
+
+service AgendaService {
+    rpc GetAgendamentos (GetAgendamentosRequest) returns (GetAgendamentosResponse);
+    rpc AtualizarStatusAgendamento (AtualizarStatusAgendamentoRequest) returns (AtualizarStatusAgendamentoResponse);
+}
+
+message GetAgendamentosRequest {}
+message GetAgendamentosResponse {
+    repeated Agendamento agendamentos = 1;
+}
+
+message AtualizarStatusAgendamentoRequest {
+    int32 idAgendamento = 1;
+    string novoStatus = 2;
+}
+
+message AtualizarStatusAgendamentoResponse {
+    bool sucesso = 1;
+}
+
+message Agendamento {
+  int32 id_agendamento = 1;
+  int32 id_cliente = 2;
+  int32 id_animal = 3;
+  string tipo = 4;
+  string data = 5;
+  string hora = 6;
+  string status = 7;
+  string nome_cliente = 8;
+  string nome_animal = 9;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="844.0" style="-fx-background-color: #F5F9F8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.FXMLGraficoVeterinariosMaiselegidoController">
+   <children>
+      <PieChart fx:id="pieChart" prefHeight="499.0" prefWidth="667.0" style="-fx-background-color: #F5F9F8;" title="Gráfico de Veterinários" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

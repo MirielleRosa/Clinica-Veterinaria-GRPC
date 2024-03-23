@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Abel";
+    src: url("caminho/para/o/arquivo/abel-font.ttf");
+}
+
+.abel-font {
+    -fx-font-family: "Abel";
+}
+
