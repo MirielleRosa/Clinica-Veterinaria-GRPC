@@ -11,5 +11,4 @@ Este é um projeto de software para uma clínica veterinária, desenvolvido com 
 ## Tecnologias Utilizadas
 - JavaFX
 - gRPC
-- NetBeans 8
   
